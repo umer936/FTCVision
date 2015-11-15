@@ -57,7 +57,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.lasarobotics.vision.detection.Features;
+//import com.lasarobotics.vision.detection.Features;
 import com.qualcomm.ftccommon.DbgLog;
 import com.qualcomm.ftccommon.FtcEventLoop;
 import com.qualcomm.ftccommon.FtcRobotControllerService;
@@ -200,7 +200,7 @@ public class FtcRobotControllerActivity extends Activity implements CameraBridge
 
         setContentView(R.layout.activity_ftc_controller);
 
-        String s = Features.stringFromJNI();
+        //String s = Features.stringFromJNI();
 
         // Create an instance of Camera
         //mCamera = Cameras.getSecondaryCamera().getCamera();
@@ -489,7 +489,7 @@ public class FtcRobotControllerActivity extends Activity implements CameraBridge
 
         if (!OpenCVLoader.initDebug()) {
             Log.d(TAG, "Internal OpenCV library not found. Using OpenCV Manager for initialization");
-            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_12, this, mLoaderCallback);
+            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_10, this, mLoaderCallback);
         } else {
             Log.d(TAG, "OpenCV library found inside package. Using it!");
             mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
@@ -681,7 +681,8 @@ public class FtcRobotControllerActivity extends Activity implements CameraBridge
     public Mat onCameraFrame(CameraBridgeViewBase.CvCameraViewFrame inputFrame) {
         mRgba = inputFrame.rgba();
         mGray = inputFrame.gray();
-        Features.highlightFeatures(mGray.getNativeObjAddr(), mRgba.getNativeObjAddr());
+        //Features.highlightFeatures(mGray.getNativeObjAddr(), mRgba.getNativeObjAddr());
+        //FIXME above commented out because Features gone
 
         return mRgba;
     }

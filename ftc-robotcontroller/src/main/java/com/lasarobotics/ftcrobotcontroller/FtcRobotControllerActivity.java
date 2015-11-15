@@ -125,6 +125,7 @@ public class FtcRobotControllerActivity extends VisionEnabledActivity {
         //This method MUST be called after setContentView!
         initializeVision(R.id.framePreview);
 
+        context = this;
         utility = new Utility(this);
         entireScreenLayout = (LinearLayout) findViewById(R.id.entire_screen);
         buttonMenu = (ImageButton) findViewById(R.id.menu_buttons);
